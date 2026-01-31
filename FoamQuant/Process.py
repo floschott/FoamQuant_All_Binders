@@ -761,12 +761,16 @@ def BubbleSegmentation_Batch(nameread, namesave, dirread, dirsave, imrange, verb
         # Bubble segmentation
         if ITK:
             image = watershedITK(image, markers=None, watershedLevel=ITKLevel)
+        
         else:
             if Binning == None:
                 Binning = 1
-            SigSeeds = SigSeeds//Binning
-            SigWatershed = SigWatershed//Binning
-            esti_min_dist = esti_min_dist//Binning
+            if SigSeeds != None:
+                SigSeeds = SigSeeds//Binning
+            if SigWatershed != None:
+                SigWatershed = SigWatershed//Binning
+            if esti_min_dist != None:
+                esti_min_dist = esti_min_dist//Binning
             image = BubbleSegmentation(image, 
                                        SigSeeds, 
                                        SigWatershed, 
