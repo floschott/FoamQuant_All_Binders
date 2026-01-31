@@ -1,0 +1,11 @@
+numpy>=1.23,<2.0
+scipy>=1.9,<2.0
+pandas>=2.0,<3.0
+
+matplotlib>=3.8,<3.10
+matplotlib-inline==0.1.6
+
+scikit-image>=0.22,<0.25
+tifffile==2024.12.12
+
+spam==0.8.1.4
