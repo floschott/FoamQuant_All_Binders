@@ -756,7 +756,7 @@ def BubbleSegmentation_Batch(nameread, namesave, dirread, dirsave, imrange, verb
         image = imread(dirread + nameread + imifordir + endread)
         # if binning
         if Binning != None:
-            import spam.DIC
+            import spam.DIC.deform.binning as binning
             image = binning(image, Binning)
         # Bubble segmentation
         if ITK:
@@ -764,13 +764,13 @@ def BubbleSegmentation_Batch(nameread, namesave, dirread, dirsave, imrange, verb
         
         else:
             if Binning == None:
-                Binning = 1
+                bini = 1
             if SigSeeds != None:
-                SigSeeds = SigSeeds//Binning
+                SigSeeds = SigSeeds//bini
             if SigWatershed != None:
-                SigWatershed = SigWatershed//Binning
+                SigWatershed = SigWatershed//bini
             if esti_min_dist != None:
-                esti_min_dist = esti_min_dist//Binning
+                esti_min_dist = esti_min_dist//bini
             image = BubbleSegmentation(image, 
                                        SigSeeds, 
                                        SigWatershed, 
